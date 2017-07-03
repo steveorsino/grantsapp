@@ -1,0 +1,31 @@
+.prospect, .pending, .activeGrant {
+    height: 100px;
+}
+
+.prospect {
+    color: white;
+    background-color: blue;
+    -webkit-transition:background-color 1s;
+    transition: background-color 1s;
+}
+.prospect:hover {
+    background-color: aqua;
+}
+.pending {
+    color: white;
+    background-color: purple;
+    -webkit-transition:background-color 1s;
+    transition: background-color 1s;
+}
+.pending:hover {
+    background-color: plum;
+}
+.activeGrant {
+    color: white;
+    background-color: red;
+    -webkit-transition:background-color 1s;
+    transition: background-color 1s;
+}
+.activeGrant:hover {
+    background-color: hotpink;
+}
