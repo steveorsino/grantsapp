@@ -32,7 +32,7 @@ $grants = $db->query($SQL);
       </table>
     </div>
 <a href="CreateGrant.php" target="_self">Create a Grant</a>
-
+<a href="Login.php" target="_self">Login</a>
 
 
 

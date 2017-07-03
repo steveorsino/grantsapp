@@ -1,6 +1,11 @@
 .prospect, .pending, .activeGrant {
     height: 100px;
 }
+.login-form {
+    height: 200px;
+    background-color: #f2f2f2;
+}
+
 .up {
     height: 100px;
     color: white;
