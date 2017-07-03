@@ -1,7 +1,16 @@
 .prospect, .pending, .activeGrant {
     height: 100px;
 }
-
+.up {
+    height: 100px;
+    color: white;
+    background-color: DarkOrange;
+    -webkit-transition:background-color 1s;
+    transition: background-color 1s;
+}
+.up:hover {
+    background-color: orange;
+}
 .prospect {
     color: white;
     background-color: blue;

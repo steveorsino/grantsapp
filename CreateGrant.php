@@ -7,6 +7,11 @@ include('header.php');
       <h1>Create a new Grant</h1>
     </div>
     <div class="row">
+        <a href="UpdateGrant.php" target="_self">><div class="col-sm-4 col-sm-offset-4 up">
+            Update Grant
+        </div></a>
+    </div>
+    <div class="row">
         <a href="prospect.php" target="_self"><div class="col-sm-4 prospect">
             Prospect
         </div></a>

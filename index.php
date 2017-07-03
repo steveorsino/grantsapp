@@ -17,6 +17,7 @@ $grants = $db->query($SQL);
           <th>Grant Type</th>
           <th>Due Date</th>
           <th>Award</th>
+          <th>Status</th>
         </tr>
         <?php foreach ($grants as $grant) { 
           echo '<tr>';
@@ -25,6 +26,7 @@ $grants = $db->query($SQL);
           echo '<td>' . $grant['grantType'] . '</td>';
           echo '<td>' . $grant['dueDate'] . '</td>';
           echo '<td>' . $grant['possibleAward'] . '</td>';
+          echo '<td>' . $grant['status'] . '</td>';
           echo '</tr>';
         } ?>
       </table>
