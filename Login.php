@@ -1,4 +1,6 @@
-<?php include('scripts/dbconnect.php');
+<?php 
+session_start();
+include('scripts/dbconnect.php');
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $myUserID = filter_input(INPUT_POST, 'userID');
@@ -11,12 +13,16 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     foreach ($users as $user) {
         if ($user['userID'] == $myUserID && $user['password'] == $myPassword) {
             $match = true;
-            
+            $_SESSION["userid"] = $myUserID;
+            header('Location: index.php');
         }
+    }
+    if (!$match) {
+        $err = 'No Account Found';
     }
 }
 
-
+$title = 'Log In';
 
 ?>
 <!DOCTYPE html>
@@ -40,6 +46,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             <input type="submit" value="Log In">
         </form>
     </div>
+    <h3 class="text-center"><?php echo $err; ?></h3>
 </div>
 
 

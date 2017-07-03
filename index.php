@@ -1,10 +1,15 @@
 <?php 
+session_start();
 $title = 'Dashboard';
 include('header.php');
 include('scripts/dbconnect.php');
+if (!$_SESSION['userid']) header('Location: Login.php');
 $SQL = "SELECT * FROM allGrant;";
 $grants = $db->query($SQL);
+
+echo '<h4>You are logged in as '. $_SESSION["userid"] .'</h4>';
 ?>
+
 <div class="container">
     <div class="page-header">
       <h1>Welcome to the Grant Tracking portal of Broward College</h1>

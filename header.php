@@ -1,4 +1,6 @@
-<?php include('scripts/dbconnect.php');?>
+<?php 
+session_start();
+include('scripts/dbconnect.php');?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
