@@ -30,7 +30,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     ";
     $success = $db->exec($SQL);
     
-    header('Location: ../UpdateGrant.php?grantID="$grantID"');
+    if ($success) 
+    setcookie('message', 'Update Successful', strtotime('+3 seconds'), '/');
+    
+    header('Location: ../UpdateGrant.php?grantID=' . "$grantID");
     
 }
 

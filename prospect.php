@@ -50,7 +50,7 @@ $isApplied = '';
         <label for="numberAwardsGiven">Number of Awards Given:</label>
         <input type="number" class="form-control" id="numberAwardsGiven" name="numberAwardsGiven">
       </div>
-      <input type="hidden" name="status" value="prospect"/>
+      <input type="hidden" name="status" value="Prospect"/>
       <input type="submit" >
       
     </form>
