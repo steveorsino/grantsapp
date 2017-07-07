@@ -6,19 +6,20 @@ include('header.php');
     <div class="page-header">
       <h1>Create a new Grant</h1>
     </div>
+    
     <div class="row">
-        <a href="UpdateGrant.php" target="_self">><div class="col-sm-4 col-sm-offset-4 up">
-            Update Grant
+        <a href="prospect.php" target="_self"><div class="col-sm-6 prospect">
+            Prospect
+        </div></a>
+        <a href="pending.php" target="_self"><div class="col-sm-6 pending">
+            Pending
         </div></a>
     </div>
     <div class="row">
-        <a href="prospect.php" target="_self"><div class="col-sm-4 prospect">
-            Prospect
+        <a href="development.php" target="_self"><div class="col-sm-6 activeGrant">
+            Development
         </div></a>
-        <div class="col-sm-4 pending">
-            Pending
-        </div>
-        <div class="col-sm-4 activeGrant">
+        <div class="col-sm-6 activeGrant">
             Active
         </div>
     </div>

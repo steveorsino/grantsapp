@@ -36,7 +36,8 @@ echo '<h4>You are logged in as '. $_SESSION["userid"] .'</h4>';
         } ?>
       </table>
     </div>
-<a href="CreateGrant.php" target="_self">Create a Grant</a>
+<a href="CreateGrant.php" target="_self">Create a Grant</a><br>
+<a href="UpdateGrant.php" target="_self">Update a Grant</a><br>
 <a href="Login.php" target="_self">Login</a>
 
 

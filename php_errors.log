@@ -12,3 +12,16 @@ Stack trace:
   thrown in /home/ubuntu/workspace/scripts/createGrant.php on line 20
 [03-Jul-2017 18:24:30 UTC] PHP Parse error:  syntax error, unexpected '$grantID' (T_VARIABLE) in /home/ubuntu/workspace/scripts/updateGrant.php on line 33
 [04-Jul-2017 14:08:56 UTC] PHP Parse error:  syntax error, unexpected end of file in /home/ubuntu/workspace/scripts/updateGrant.php on line 38
+[07-Jul-2017 14:45:09 UTC] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'projectOfficer = '',
+    grantWriter = '',
+    indirectPercentage = '',
+    matc' at line 13' in /home/ubuntu/workspace/scripts/updateGrant.php:43
+Stack trace:
+#0 /home/ubuntu/workspace/scripts/updateGrant.php(43): PDO->exec('UPDATE allGrant...')
+#1 {main}
+  thrown in /home/ubuntu/workspace/scripts/updateGrant.php on line 43
+[07-Jul-2017 14:47:06 UTC] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[42S22]: Column not found: 1054 Unknown column 'projectOfficer' in 'field list'' in /home/ubuntu/workspace/scripts/updateGrant.php:43
+Stack trace:
+#0 /home/ubuntu/workspace/scripts/updateGrant.php(43): PDO->exec('UPDATE allGrant...')
+#1 {main}
+  thrown in /home/ubuntu/workspace/scripts/updateGrant.php on line 43

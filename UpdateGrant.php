@@ -54,8 +54,102 @@ include('header.php');
       }
       ?>
       <?php } else if ($grant['status'] == 'Development') { ?>
-      <h3>Development Grant</h3>
+      
+       <h4>Grant number: <?php echo $grant['grantID'];?> </h4>
+        <form action="scripts/updateGrant.php" method="post"target="_self">
+        <p>Funder: <input type="text" name="funder" value="<?php echo  $grant['funder']; ?>"></p>
+        <p>Website: <input type="text" name="website" value="<?php echo $grant['website'];?>"></p>
+        <p>Description: <input type="text" name="description" value="<?php echo $grant['description'];?>"></p>
+        <p>Grant Type: 
+          <select name="grantType">
+            <option value="Federal" <?php if ($grant['grantType'] == 'Federal') echo 'selected'; ?>>Federal</option>
+            <option value="State" <?php if ($grant['grantType'] == 'State') echo 'selected'; ?>>State</option>
+            <option value="Foundation" <?php if ($grant['grantType'] == 'Foundation') echo 'selected'; ?>>Foundation</option>
+            <option value="Other" <?php if ($grant['grantType'] == 'Other') echo 'selected'; ?>>Other</option>
+          </select></p>
+        <p>Due Date: <input type="date" name="dueDate" value="<?php echo $grant['funder'];?>"></p>
+        <p>Potential Project: <input type="text" name="potentialProject" value="<?php echo $grant['potentialProject']; ?>"></p>
+        <p>Possible Award: <input type="number" name="possibleAward" value="<?php echo $grant['possibleAward']; ?>"></p>
+        <p>Total Awards Given: <input type="number" name="numberAwardsGiven" value="<?php echo $grant['numberAwardsGiven']; ?>"></p>
+        <p>Grant status
+          <select name="status">
+            <option value="Prospect" <?php if ($grant['status'] == 'Prospect') echo 'selected'; ?>>Prospect</option>
+            <option value="Development" <?php if ($grant['status'] == 'Development') echo 'selected'; ?>>Development</option>
+            <option value="Pending" <?php if ($grant['status'] == 'Pending') echo 'selected'; ?>>Pending</option>
+            <option value="Post Award" <?php if ($grant['status'] == 'Post Award') echo 'selected'; ?>>Post Award</option>
+            <option value="Denied" <?php if ($grant['status'] == 'Denied') echo 'selected'; ?>>Denied</option>
+          </select>
+        </p>
+        <p>PI or PD Information: <input type="text" name="piorpd" value="<?php echo $grant['piorpd']; ?>"></p>
+        <p>Project Officer: <input type="text" name="projectOfficer" value="<?php echo $grant['projectOfficer']; ?>"></p>
+        <p>Grant Writer: <input type="text" name="grantWriter" value="<?php echo $grant['grantWriter']; ?>"></p>
+        <p>Indirect Percentage: <input type="number" name="indirectPercentage" value="<?php echo $grant['indirectPercentage']; ?>"></p>
+        <p>Match Requirement: <input type="number" name="matchRequirement" value="<?php echo $grant['matchRequirement']; ?>"></p>
+        <p>Associated Department: <input type="text" name="associatedDepartment" value="<?php echo $grant['associatedDepartment']; ?>"></p>
+        <input type="hidden" name="grantID" value="<?php echo $grant['grantID'];?>">
+        <input type="submit" value="Update">
+        </form>
+      <?php if ($_COOKIE['message'] != null) {
+        $message = $_COOKIE['message'];
+        echo '<h4 class="success">' . $message . '</h4>';
+      } else {
+        echo '<h4>   </h4>';
+      }
+      ?>
+      
       <?php } else if ($grant['status'] == 'Pending') { ?>
+      
+      <h4>Grant number: <?php echo $grant['grantID'];?> </h4>
+        <form action="scripts/updateGrant.php" method="post"target="_self">
+        <p>Funder: <input type="text" name="funder" value="<?php echo  $grant['funder']; ?>"></p>
+        <p>Website: <input type="text" name="website" value="<?php echo $grant['website'];?>"></p>
+        <p>Description: <input type="text" name="description" value="<?php echo $grant['description'];?>"></p>
+        <p>Grant Type: 
+          <select name="grantType">
+            <option value="Federal" <?php if ($grant['grantType'] == 'Federal') echo 'selected'; ?>>Federal</option>
+            <option value="State" <?php if ($grant['grantType'] == 'State') echo 'selected'; ?>>State</option>
+            <option value="Foundation" <?php if ($grant['grantType'] == 'Foundation') echo 'selected'; ?>>Foundation</option>
+            <option value="Other" <?php if ($grant['grantType'] == 'Other') echo 'selected'; ?>>Other</option>
+          </select></p>
+        <p>Due Date: <input type="date" name="dueDate" value="<?php echo $grant['funder'];?>"></p>
+        <p>Potential Project: <input type="text" name="potentialProject" value="<?php echo $grant['potentialProject']; ?>"></p>
+        <p>Possible Award: <input type="number" name="possibleAward" value="<?php echo $grant['possibleAward']; ?>"></p>
+        <p>Total Awards Given: <input type="number" name="numberAwardsGiven" value="<?php echo $grant['numberAwardsGiven']; ?>"></p>
+        <p>Grant status
+          <select name="status">
+            <option value="Prospect" <?php if ($grant['status'] == 'Prospect') echo 'selected'; ?>>Prospect</option>
+            <option value="Development" <?php if ($grant['status'] == 'Development') echo 'selected'; ?>>Development</option>
+            <option value="Pending" <?php if ($grant['status'] == 'Pending') echo 'selected'; ?>>Pending</option>
+            <option value="Post Award" <?php if ($grant['status'] == 'Post Award') echo 'selected'; ?>>Post Award</option>
+            <option value="Denied" <?php if ($grant['status'] == 'Denied') echo 'selected'; ?>>Denied</option>
+          </select>
+        </p>
+        <p>PI or PD Information: <input type="text" name="piorpd" value="<?php echo $grant['piorpd']; ?>"></p>
+        <p>Project Officer: <input type="text" name="projectOfficer" value="<?php echo $grant['projectOfficer']; ?>"></p>
+        <p>Grant Writer: <input type="text" name="grantWriter" value="<?php echo $grant['grantWriter']; ?>"></p>
+        <p>Indirect Percentage: <input type="number" name="indirectPercentage" value="<?php echo $grant['indirectPercentage']; ?>"></p>
+        <p>Match Requirement: <input type="number" name="matchRequirement" value="<?php echo $grant['matchRequirement']; ?>"></p>
+        <p>Associated Department: <input type="text" name="associatedDepartment" value="<?php echo $grant['associatedDepartment']; ?>"></p>
+        <p>Campus
+          <select name="campus">
+            <option value="North" <?php if ($grant['campus'] == 'North') echo 'selected'; ?>>North</option>
+            <option value="South" <?php if ($grant['campus'] == 'South') echo 'selected'; ?>>South</option>
+            <option value="Pending" <?php if ($grant['campus'] == 'Central') echo 'selected'; ?>>Central</option>
+            <option value="Post Award" <?php if ($grant['campus'] == 'Downtown') echo 'selected'; ?>>Downtown</option>
+          </select>
+        </p>
+        <p>Partners: <input type="text" name="partners" value="<?php echo $grant['partners']; ?>"></p>
+        <p>Date to hear back: <input type="date" name="hearBackDate" value="<?php echo $grant['hearBackDate']; ?>"/></p>
+        <input type="hidden" name="grantID" value="<?php echo $grant['grantID'];?>">
+        <input type="submit" value="Update">
+        </form>
+      <?php if ($_COOKIE['message'] != null) {
+        $message = $_COOKIE['message'];
+        echo '<h4 class="success">' . $message . '</h4>';
+      } else {
+        echo '<h4>   </h4>';
+      }
+      ?>
       
       <?php } else if ($grant['status'] == 'Post Award') {?>
       

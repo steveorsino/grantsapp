@@ -12,6 +12,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $possibleAward = filter_input(INPUT_POST, 'possibleAward');
     $numberAwardsGiven = filter_input(INPUT_POST, 'numberAwardsGiven');
     $status = filter_input(INPUT_POST, 'status');
+    $piorpd = filter_input(INPUT_POST, 'piorpd');
+    $projectOfficer = filter_input(INPUT_POST, 'projectOfficer');
+    $grantWriter = filter_input(INPUT_POST, 'grantWriter');
+    $indirectPercentage = filter_input(INPUT_POST, 'indirectPercentage');
+    $matchRequirement = filter_input(INPUT_POST, 'matchRequirement');
+    $associatedDepartment = filter_input(INPUT_POST, 'associatedDepartment');
     
     $SQL = 
     "UPDATE allGrant
@@ -24,7 +30,13 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     potentialProject = '$potentialProject',
     possibleAward = '$possibleAward',
     numberAwardsGiven = '$numberAwardsGiven',
-    status = '$status'
+    status = '$status',
+    piorpd = '$piorpd',
+    projectOfficer = '$projectOfficer',
+    grantWriter = '$grantWriter',
+    indirectPercentage = '$indirectPercentage',
+    matchRequirement = '$matchRequirement',
+    associatedDepartment = '$associatedDepartment'
     WHERE
     grantID = '$grantID';
     ";
