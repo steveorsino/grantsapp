@@ -8,19 +8,25 @@ include('header.php');
     </div>
     
     <div class="row">
-        <a href="prospect.php" target="_self"><div class="col-sm-6 prospect">
+        <a href="prospect.php" target="_self"><div class="col-sm-4 prospect">
             Prospect
         </div></a>
-        <a href="pending.php" target="_self"><div class="col-sm-6 pending">
+        <a href="development.php" target="_self"><div class="col-sm-4 development">
+            Development
+        </div></a>
+        <a href="pending.php" target="_self"><div class="col-sm-4 pending">
             Pending
         </div></a>
     </div>
     <div class="row">
-        <a href="development.php" target="_self"><div class="col-sm-6 activeGrant">
-            Development
+        <a href="postaward.php" target="_self"><div class="col-sm-4 postAward">
+            Post Award
         </div></a>
-        <div class="col-sm-6 activeGrant">
-            Active
+        <a href="denied.php" target="_self"><div class="col-sm-4 postAward">
+            Denied
+        </div></a>
+        <div class="col-sm-4 postAward">
+            Closed
         </div>
     </div>
 

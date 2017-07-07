@@ -25,3 +25,8 @@ Stack trace:
 #0 /home/ubuntu/workspace/scripts/updateGrant.php(43): PDO->exec('UPDATE allGrant...')
 #1 {main}
   thrown in /home/ubuntu/workspace/scripts/updateGrant.php on line 43
+[07-Jul-2017 19:42:23 UTC] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[42S22]: Column not found: 1054 Unknown column 'newOrContinuation' in 'field list'' in /home/ubuntu/workspace/scripts/createGrant.php:43
+Stack trace:
+#0 /home/ubuntu/workspace/scripts/createGrant.php(43): PDO->exec('INSERT INTO all...')
+#1 {main}
+  thrown in /home/ubuntu/workspace/scripts/createGrant.php on line 43

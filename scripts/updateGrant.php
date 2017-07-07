@@ -18,6 +18,18 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $indirectPercentage = filter_input(INPUT_POST, 'indirectPercentage');
     $matchRequirement = filter_input(INPUT_POST, 'matchRequirement');
     $associatedDepartment = filter_input(INPUT_POST, 'associatedDepartment');
+    $campus = filter_input(INPUT_POST, 'campus');
+    $partners = filter_input(INPUT_POST, 'partners');
+    $hearBackDate = filter_input(INPUT_POST, 'hearBackDate');
+    $beginDate = filter_input(INPUT_POST, 'beginDate');
+    $endDate = filter_input(INPUT_POST, 'endDate');
+    $performanceMeasures = filter_input(INPUT_POST, 'performanceMeasures');
+    $deliverables = filter_input(INPUT_POST, 'deliverables');
+    $FYBudget = filter_input(INPUT_POST, 'FYBudget');
+    $FYBeginDate = filter_input(INPUT_POST, 'FYBeginDate');
+    $FYEndDate = filter_input(INPUT_POST, 'FYEndDate');
+    $legalContractStatus = filter_input(INPUT_POST, 'legalContractStatus');
+    $newOrContinuation = filter_input(INPUT_POST, 'newOrContinuation');
     
     $SQL = 
     "UPDATE allGrant
@@ -36,7 +48,19 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     grantWriter = '$grantWriter',
     indirectPercentage = '$indirectPercentage',
     matchRequirement = '$matchRequirement',
-    associatedDepartment = '$associatedDepartment'
+    associatedDepartment = '$associatedDepartment',
+    campus = '$campus',
+    partners = '$partners',
+    hearBackDate = '$hearBackDate',
+    beginDate = '$beginDate',
+    endDate = '$endDate',
+    performanceMeasures = '$performanceMeasures',
+    deliverables = '$deliverables',
+    FYBudget = '$FYBudget',
+    FYBeginDate = '$FYBeginDate',
+    FYEndDate = '$FYEndDate',
+    legalContractStatus = '$legalContractStatus',
+    newOrContinuation = '$newOrContinuation'
     WHERE
     grantID = '$grantID';
     ";
