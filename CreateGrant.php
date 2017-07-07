@@ -1,5 +1,5 @@
 <?php 
-$title = 'ENTER TITLE';
+$title = 'Create a New Grant';
 include('header.php');
 ?>
 <div class="container">
@@ -22,12 +22,12 @@ include('header.php');
         <a href="postaward.php" target="_self"><div class="col-sm-4 postAward">
             Post Award
         </div></a>
-        <a href="denied.php" target="_self"><div class="col-sm-4 postAward">
+        <a href="denied.php" target="_self"><div class="col-sm-4 pending">
             Denied
         </div></a>
-        <div class="col-sm-4 postAward">
+        <a href="closed.php" target="_self"><div class="col-sm-4 prospect">
             Closed
-        </div>
+        </div></a>
     </div>
 
 

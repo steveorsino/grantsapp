@@ -41,15 +41,16 @@ include('header.php');
             <option value="Pending" <?php if ($grant['status'] == 'Pending') echo 'selected'; ?>>Pending</option>
             <option value="Post Award" <?php if ($grant['status'] == 'Post Award') echo 'selected'; ?>>Post Award</option>
             <option value="Denied" <?php if ($grant['status'] == 'Denied') echo 'selected'; ?>>Denied</option>
+            <option value="Closed" <?php if ($grant['status'] == 'Closed') echo 'selected'; ?>>Closed</option>
           </select>
         </p>
         <input type="hidden" name="grantID" value="<?php echo $grant['grantID'];?>">
         <input type="submit" value="Update">
         </form>
       <?php if ($_COOKIE['message'] != null) {
-        $message = $_COOKIE['message'];
-        echo '<h4 class=\" alert alert-success\">' . $message . '</h4>';
-      } else {
+        $message = $_COOKIE['message']; ?>
+        <h4 class="success"><?php echo $message; ?></h4>
+      <?php } else {
         echo '<h4>   </h4>';
       }
       ?>
@@ -78,6 +79,7 @@ include('header.php');
             <option value="Pending" <?php if ($grant['status'] == 'Pending') echo 'selected'; ?>>Pending</option>
             <option value="Post Award" <?php if ($grant['status'] == 'Post Award') echo 'selected'; ?>>Post Award</option>
             <option value="Denied" <?php if ($grant['status'] == 'Denied') echo 'selected'; ?>>Denied</option>
+            <option value="Closed" <?php if ($grant['status'] == 'Closed') echo 'selected'; ?>>Closed</option>
           </select>
         </p>
         <p>PI or PD Information: <input type="text" name="piorpd" value="<?php echo $grant['piorpd']; ?>"></p>
@@ -90,9 +92,9 @@ include('header.php');
         <input type="submit" value="Update">
         </form>
       <?php if ($_COOKIE['message'] != null) {
-        $message = $_COOKIE['message'];
-        echo '<h4 class=\"alert-success\">' . $message . '</h4>';
-      } else {
+        $message = $_COOKIE['message']; ?>
+        <h4 class="success"><?php echo $message; ?></h4>
+      <?php } else {
         echo '<h4>   </h4>';
       }
       ?>
@@ -122,6 +124,7 @@ include('header.php');
             <option value="Pending" <?php if ($grant['status'] == 'Pending') echo 'selected'; ?>>Pending</option>
             <option value="Post Award" <?php if ($grant['status'] == 'Post Award') echo 'selected'; ?>>Post Award</option>
             <option value="Denied" <?php if ($grant['status'] == 'Denied') echo 'selected'; ?>>Denied</option>
+            <option value="Closed" <?php if ($grant['status'] == 'Closed') echo 'selected'; ?>>Closed</option>
           </select>
         </p>
         <p>PI or PD Information: <input type="text" name="piorpd" value="<?php echo $grant['piorpd']; ?>"></p>
@@ -143,9 +146,9 @@ include('header.php');
         <input type="hidden" name="grantID" value="<?php echo $grant['grantID'];?>">
         <input type="submit" value="Update">
         </form>
-      <?php if ($_COOKIE['message'] != null) { 
-        $message = $_COOKIE['message'];?>
-      <h4 class="success"><?php echo $message; ?> </h4>
+      <?php if ($_COOKIE['message'] != null) {
+        $message = $_COOKIE['message']; ?>
+        <h4 class="success"><?php echo $message; ?></h4>
       <?php } else {
         echo '<h4>   </h4>';
       }
@@ -177,6 +180,7 @@ include('header.php');
             <option value="Pending" <?php if ($grant['status'] == 'Pending') echo 'selected'; ?>>Pending</option>
             <option value="Post Award" <?php if ($grant['status'] == 'Post Award') echo 'selected'; ?>>Post Award</option>
             <option value="Denied" <?php if ($grant['status'] == 'Denied') echo 'selected'; ?>>Denied</option>
+            <option value="Closed" <?php if ($grant['status'] == 'Closed') echo 'selected'; ?>>Closed</option>
           </select>
         </p>
         <p>PI or PD Information: <input type="text" name="piorpd" value="<?php echo $grant['piorpd']; ?>"></p>
@@ -210,9 +214,9 @@ include('header.php');
         <input type="hidden" name="grantID" value="<?php echo $grant['grantID'];?>">
         <input type="submit" value="Update">
         </form>
-      <?php if ($_COOKIE['message'] != null) { 
-        $message = $_COOKIE['message'];?>
-      <h4 class="success"><?php echo $message; ?> </h4>
+      <?php if ($_COOKIE['message'] != null) {
+        $message = $_COOKIE['message']; ?>
+        <h4 class="success"><?php echo $message; ?></h4>
       <?php } else {
         echo '<h4>   </h4>';
       }
@@ -243,6 +247,7 @@ include('header.php');
             <option value="Pending" <?php if ($grant['status'] == 'Pending') echo 'selected'; ?>>Pending</option>
             <option value="Post Award" <?php if ($grant['status'] == 'Post Award') echo 'selected'; ?>>Post Award</option>
             <option value="Denied" <?php if ($grant['status'] == 'Denied') echo 'selected'; ?>>Denied</option>
+            <option value="Closed" <?php if ($grant['status'] == 'Closed') echo 'selected'; ?>>Closed</option>
           </select>
         </p>
         <p>PI or PD Information: <input type="text" name="piorpd" value="<?php echo $grant['piorpd']; ?>"></p>
@@ -264,15 +269,48 @@ include('header.php');
         <input type="hidden" name="grantID" value="<?php echo $grant['grantID'];?>">
         <input type="submit" value="Update">
         </form>
-      <?php if ($_COOKIE['message'] != null) { 
-        $message = $_COOKIE['message'];?>
-      <h4 class="success"><?php echo $message; ?> </h4>
+      <?php if ($_COOKIE['message'] != null) {
+        $message = $_COOKIE['message']; ?>
+        <h4 class="success"><?php echo $message; ?></h4>
       <?php } else {
         echo '<h4>   </h4>';
       }
       ?>
       
       <?php } else { ?>
+      
+        <h4>Grant number: <?php echo $grant['grantID'];?> </h4>
+        <form action="scripts/updateGrant.php" method="post"target="_self">
+        <p>Funder: <input type="text" name="funder" value="<?php echo  $grant['funder']; ?>"></p>
+        <p>Website: <input type="text" name="website" value="<?php echo $grant['website'];?>"></p>
+        <p>Description: <input type="text" name="description" value="<?php echo $grant['description'];?>"></p>
+        <p>Grant Type: 
+          <select name="grantType">
+            <option value="Federal" <?php if ($grant['grantType'] == 'Federal') echo 'selected'; ?>>Federal</option>
+            <option value="State" <?php if ($grant['grantType'] == 'State') echo 'selected'; ?>>State</option>
+            <option value="Foundation" <?php if ($grant['grantType'] == 'Foundation') echo 'selected'; ?>>Foundation</option>
+            <option value="Other" <?php if ($grant['grantType'] == 'Other') echo 'selected'; ?>>Other</option>
+          </select></p>
+        <p>Grant status
+          <select name="status">
+            <option value="Prospect" <?php if ($grant['status'] == 'Prospect') echo 'selected'; ?>>Prospect</option>
+            <option value="Development" <?php if ($grant['status'] == 'Development') echo 'selected'; ?>>Development</option>
+            <option value="Pending" <?php if ($grant['status'] == 'Pending') echo 'selected'; ?>>Pending</option>
+            <option value="Post Award" <?php if ($grant['status'] == 'Post Award') echo 'selected'; ?>>Post Award</option>
+            <option value="Denied" <?php if ($grant['status'] == 'Denied') echo 'selected'; ?>>Denied</option>
+            <option value="Closed" <?php if ($grant['status'] == 'Closed') echo 'selected'; ?>>Closed</option>
+          </select>
+        </p>
+        <input type="hidden" name="grantID" value="<?php echo $grant['grantID'];?>">
+        <input type="submit" value="Update">
+        </form>
+      <?php if ($_COOKIE['message'] != null) {
+        $message = $_COOKIE['message']; ?>
+        <h4 class="success"><?php echo $message; ?></h4>
+      <?php } else {
+        echo '<h4>   </h4>';
+      }
+      ?>
       
       <?php } ?>
       
