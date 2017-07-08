@@ -30,3 +30,14 @@ Stack trace:
 #0 /home/ubuntu/workspace/scripts/createGrant.php(43): PDO->exec('INSERT INTO all...')
 #1 {main}
   thrown in /home/ubuntu/workspace/scripts/createGrant.php on line 43
+[08-Jul-2017 14:42:24 UTC] PHP Parse error:  syntax error, unexpected 'TO' (T_STRING) in /home/ubuntu/workspace/scripts/createGrant.php on line 9
+[08-Jul-2017 16:53:02 UTC] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[42S02]: Base table or view not found: 1146 Table 'GrantTracking_v2.Pathways' doesn't exist' in /home/ubuntu/workspace/scripts/addPathway.php:30
+Stack trace:
+#0 /home/ubuntu/workspace/scripts/addPathway.php(30): PDO->exec('?        DELETE...')
+#1 {main}
+  thrown in /home/ubuntu/workspace/scripts/addPathway.php on line 30
+[08-Jul-2017 16:56:08 UTC] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[42S02]: Base table or view not found: 1146 Table 'GrantTracking_v2.Pathways' doesn't exist' in /home/ubuntu/workspace/scripts/addPathway.php:13
+Stack trace:
+#0 /home/ubuntu/workspace/scripts/addPathway.php(13): PDO->exec('?        INSERT...')
+#1 {main}
+  thrown in /home/ubuntu/workspace/scripts/addPathway.php on line 13

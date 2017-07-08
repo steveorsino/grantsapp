@@ -14,6 +14,12 @@ include('header.php');
     WHERE grantID = '$grantID';";
     $theGrant = $db->query($SQL);
     
+    $SQL2 = "
+      SELECT * FROM Pathway
+      WHERE grantID = '$grantID';
+    ";
+    $pathways = $db->query($SQL2);
+    
     foreach ($theGrant as $grant) { ?>
     
       <?php if ($grant['status'] == 'Prospect' || $grant['status'] == null) { ?>
@@ -31,6 +37,13 @@ include('header.php');
             <option value="Other" <?php if ($grant['grantType'] == 'Other') echo 'selected'; ?>>Other</option>
           </select></p>
         <p>Due Date: <input type="date" name="dueDate" value="<?php echo $grant['dueDate'];?>"></p>
+        <p>Pathways</p>
+        <ul>
+          <?php foreach ($pathways as $pathway) { ?>
+            <li><?php echo $pathway['pathwayName']; ?></li>
+          <?php } ?>
+        </ul>
+        <input type="submit" target="_self" value="Update Pathways" form="pathway">
         <p>Potential Project: <input type="text" name="potentialProject" value="<?php echo $grant['potentialProject']; ?>"></p>
         <p>Possible Award: <input type="number" name="possibleAward" value="<?php echo $grant['possibleAward']; ?>"></p>
         <p>Total Awards Given: <input type="number" name="numberAwardsGiven" value="<?php echo $grant['numberAwardsGiven']; ?>"></p>
@@ -69,6 +82,12 @@ include('header.php');
             <option value="Other" <?php if ($grant['grantType'] == 'Other') echo 'selected'; ?>>Other</option>
           </select></p>
         <p>Due Date: <input type="date" name="dueDate" value="<?php echo $grant['dueDate'];?>"></p>
+        <p>Pathways</p>
+        <ul>
+          <?php foreach ($pathways as $pathway) { ?>
+            <li><?php echo $pathway['pathwayName']; ?></li>
+          <?php } ?>
+        </ul>
         <p>Potential Project: <input type="text" name="potentialProject" value="<?php echo $grant['potentialProject']; ?>"></p>
         <p>Possible Award: <input type="number" name="possibleAward" value="<?php echo $grant['possibleAward']; ?>"></p>
         <p>Total Awards Given: <input type="number" name="numberAwardsGiven" value="<?php echo $grant['numberAwardsGiven']; ?>"></p>
@@ -332,7 +351,9 @@ include('header.php');
         <input type="submit">
       </form>
     </div>
-
+    <form action="AddPathway.php" id="pathway" method="post">
+      <input type="hidden" name="grantID" value="<?php echo $grantID; ?>">
+    </form>
 
 
 

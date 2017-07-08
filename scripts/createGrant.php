@@ -6,7 +6,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $description = filter_input(INPUT_POST, 'description');
     $grantType = filter_input(INPUT_POST, 'grantType');
     $dueDate = filter_input(INPUT_POST, 'dueDate');
-   // $pathway = filter_input(INPUT_POST, 'pathway'); NEED TO FIGURE THIS OUT
+    $pathway = filter_input(INPUT_POST, 'pathway'); 
     $potentialProject = filter_input(INPUT_POST, 'potentialProject');
     $possibleAward = filter_input(INPUT_POST, 'possibleAward');
     $numberAwardsGiven = filter_input(INPUT_POST, 'numberAwardsGiven');
@@ -39,12 +39,64 @@ beginDate, endDate, performanceMeasures, deliverables, FYBudget, FYBeginDate, FY
 VALUES
 ('$funder', '$website', '$description', '$grantType', '$dueDate', '$potentialProject', '$possibleAward', '$NumberAwardsGiven', '$status', '$piorpd', 
 '$projectOfficer', '$grantWriter', '$indirectPercentage', '$matchRequirement', '$associatedDepartment', '$campus', '$partners', '$hearBackDate',
-'$beginDate', '$endDate', '$performanceMeasures', '$deliverables', '$FYBudget', '$FYBeginDate', '$FYEndDate', '$legalContractStatus', '$newOrContinuation');";
- $success = $db->exec($SQL);
-      if ($success < 1) {
-        echo '<h4 class="error">There was an error inserting the item</h4>';
-      } else {
-        //redirect to screen page if successful
-        header('Location: ../index.php');
-      }
+'$beginDate', '$endDate', '$performanceMeasures', '$deliverables', '$FYBudget', '$FYBeginDate', '$FYEndDate', '$legalContractStatus', '$newOrContinuation');
+";
+
+$success = $db->exec($SQL);
+ 
+
+$SQL2 = "
+  SELECT grantID from allGrant;  
+";
+
+$grants =  $db->query($SQL2);
+
+$latestGrant = 1;
+foreach ($grants as $grant) {
+    if ($grant['grantID'] > $latestGrant)
+    $latestGrant = $grant['grantID'];
+}
+
+
+ 
+$SQL3 = "
+INSERT INTO Pathway
+(pathwayName, grantID)
+VALUES
+('$pathway', '$latestGrant');
+";
+$success = $db->exec($SQL3);
+
+
+if ($success < 1) {
+echo '<h4 class="error">There was an error inserting the item</h4>';
+} else {
+//redirect to screen page if successful
+header('Location: ../index.php');
+}
+
+
 ?>
+
+
+<?php 
+//include('../header.php'); ?>
+
+<?php 
+/*echo '<h1>' . $latestGrant . '</h1><ol>';
+foreach ($grants as $grant) {
+    echo '<li>' . $grant['grantID'] . '</li>'; 
+}
+echo '</ol>';
+?>
+<?php include('../footer.php'); 
+*/
+?>
+
+
+
+
+
+
+
+

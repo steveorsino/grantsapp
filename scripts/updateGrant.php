@@ -7,7 +7,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $description = filter_input(INPUT_POST, 'description');
     $grantType = filter_input(INPUT_POST, 'grantType');
     $dueDate = filter_input(INPUT_POST, 'dueDate');
-   // $pathway = filter_input(INPUT_POST, 'pathway'); NEED TO FIGURE THIS OUT
+    $pathway = filter_input(INPUT_POST, 'pathway');
     $potentialProject = filter_input(INPUT_POST, 'potentialProject');
     $possibleAward = filter_input(INPUT_POST, 'possibleAward');
     $numberAwardsGiven = filter_input(INPUT_POST, 'numberAwardsGiven');
