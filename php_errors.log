@@ -41,3 +41,29 @@ Stack trace:
 #0 /home/ubuntu/workspace/scripts/addPathway.php(13): PDO->exec('?        INSERT...')
 #1 {main}
   thrown in /home/ubuntu/workspace/scripts/addPathway.php on line 13
+[08-Jul-2017 20:24:55 UTC] PHP Parse error:  syntax error, unexpected '.' in /home/ubuntu/workspace/scripts/addFile.php on line 5
+[08-Jul-2017 20:25:25 UTC] PHP Parse error:  syntax error, unexpected '.' in /home/ubuntu/workspace/scripts/addFile.php on line 5
+[08-Jul-2017 20:25:52 UTC] PHP Warning:  move_uploaded_file(/home/ubuntu/workspace/scripts/files/test.txt.rtf): failed to open stream: No such file or directory in /home/ubuntu/workspace/scripts/addFile.php on line 7
+[08-Jul-2017 20:25:52 UTC] PHP Stack trace:
+[08-Jul-2017 20:25:52 UTC] PHP   1. {main}() /home/ubuntu/workspace/scripts/addFile.php:0
+[08-Jul-2017 20:25:52 UTC] PHP   2. move_uploaded_file() /home/ubuntu/workspace/scripts/addFile.php:7
+[08-Jul-2017 20:25:52 UTC] PHP Warning:  move_uploaded_file(): Unable to move '/tmp/phpUVLew3' to '/home/ubuntu/workspace/scripts/files/test.txt.rtf' in /home/ubuntu/workspace/scripts/addFile.php on line 7
+[08-Jul-2017 20:25:52 UTC] PHP Stack trace:
+[08-Jul-2017 20:25:52 UTC] PHP   1. {main}() /home/ubuntu/workspace/scripts/addFile.php:0
+[08-Jul-2017 20:25:52 UTC] PHP   2. move_uploaded_file() /home/ubuntu/workspace/scripts/addFile.php:7
+[08-Jul-2017 20:38:26 UTC] PHP Warning:  move_uploaded_file(/home/ubuntu/workspace/scripts/files/test.txt.rtf): failed to open stream: No such file or directory in /home/ubuntu/workspace/scripts/addFile.php on line 8
+[08-Jul-2017 20:38:26 UTC] PHP Stack trace:
+[08-Jul-2017 20:38:26 UTC] PHP   1. {main}() /home/ubuntu/workspace/scripts/addFile.php:0
+[08-Jul-2017 20:38:26 UTC] PHP   2. move_uploaded_file() /home/ubuntu/workspace/scripts/addFile.php:8
+[08-Jul-2017 20:38:26 UTC] PHP Warning:  move_uploaded_file(): Unable to move '/tmp/phpFw8RMe' to '/home/ubuntu/workspace/scripts/files/test.txt.rtf' in /home/ubuntu/workspace/scripts/addFile.php on line 8
+[08-Jul-2017 20:38:26 UTC] PHP Stack trace:
+[08-Jul-2017 20:38:26 UTC] PHP   1. {main}() /home/ubuntu/workspace/scripts/addFile.php:0
+[08-Jul-2017 20:38:26 UTC] PHP   2. move_uploaded_file() /home/ubuntu/workspace/scripts/addFile.php:8
+[08-Jul-2017 20:40:03 UTC] PHP Warning:  move_uploaded_file(/home/ubuntu/workspace/scripts/files/test.pdf): failed to open stream: No such file or directory in /home/ubuntu/workspace/scripts/addFile.php on line 8
+[08-Jul-2017 20:40:03 UTC] PHP Stack trace:
+[08-Jul-2017 20:40:03 UTC] PHP   1. {main}() /home/ubuntu/workspace/scripts/addFile.php:0
+[08-Jul-2017 20:40:03 UTC] PHP   2. move_uploaded_file() /home/ubuntu/workspace/scripts/addFile.php:8
+[08-Jul-2017 20:40:03 UTC] PHP Warning:  move_uploaded_file(): Unable to move '/tmp/phpYQ6Y1u' to '/home/ubuntu/workspace/scripts/files/test.pdf' in /home/ubuntu/workspace/scripts/addFile.php on line 8
+[08-Jul-2017 20:40:03 UTC] PHP Stack trace:
+[08-Jul-2017 20:40:03 UTC] PHP   1. {main}() /home/ubuntu/workspace/scripts/addFile.php:0
+[08-Jul-2017 20:40:03 UTC] PHP   2. move_uploaded_file() /home/ubuntu/workspace/scripts/addFile.php:8

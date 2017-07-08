@@ -111,6 +111,14 @@ include('header.php');
         <input type="hidden" name="grantID" value="<?php echo $grant['grantID'];?>">
         <input type="submit" value="Update">
         </form>
+        <form action="scripts/addFile.php" method="post" enctype="multipart/form-data">
+          <p>Upload an RFP here</p>
+          <input type="file" name="newFile">
+          <input type="hidden" name="grantID" value="<?php echo $grantID; ?>">
+          <input type="hidden" name="role" value="RFP">
+          <br>
+          <input type="submit" value="Add File">
+        </form>
       <?php if ($_COOKIE['message'] != null) {
         $message = $_COOKIE['message']; ?>
         <h4 class="success"><?php echo $message; ?></h4>
