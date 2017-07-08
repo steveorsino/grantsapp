@@ -88,6 +88,7 @@ include('header.php');
             <li><?php echo $pathway['pathwayName']; ?></li>
           <?php } ?>
         </ul>
+        <input type="submit" target="_self" value="Update Pathways" form="pathway">
         <p>Potential Project: <input type="text" name="potentialProject" value="<?php echo $grant['potentialProject']; ?>"></p>
         <p>Possible Award: <input type="number" name="possibleAward" value="<?php echo $grant['possibleAward']; ?>"></p>
         <p>Total Awards Given: <input type="number" name="numberAwardsGiven" value="<?php echo $grant['numberAwardsGiven']; ?>"></p>
@@ -134,6 +135,13 @@ include('header.php');
           </select></p>
         <p>Due Date: <input type="date" name="dueDate" value="<?php echo $grant['dueDate'];?>"></p>
         <p>Potential Project: <input type="text" name="potentialProject" value="<?php echo $grant['potentialProject']; ?>"></p>
+        <p>Pathways</p>
+        <ul>
+          <?php foreach ($pathways as $pathway) { ?>
+            <li><?php echo $pathway['pathwayName']; ?></li>
+          <?php } ?>
+        </ul>
+        <input type="submit" target="_self" value="Update Pathways" form="pathway">
         <p>Possible Award: <input type="number" name="possibleAward" value="<?php echo $grant['possibleAward']; ?>"></p>
         <p>Total Awards Given: <input type="number" name="numberAwardsGiven" value="<?php echo $grant['numberAwardsGiven']; ?>"></p>
         <p>Grant status
@@ -189,6 +197,13 @@ include('header.php');
           </select></p>
         <p>Begin Date: <input type="date" name="beginDate" value="<?php echo $grant['beginDate']; ?>"/></p>
         <p>End Date: <input type="date" name="endDate" value="<?php echo $grant['endDate'];?>"></p>
+        <p>Pathways</p>
+        <ul>
+          <?php foreach ($pathways as $pathway) { ?>
+            <li><?php echo $pathway['pathwayName']; ?></li>
+          <?php } ?>
+        </ul>
+        <input type="submit" target="_self" value="Update Pathways" form="pathway">
         <p>Potential Project: <input type="text" name="potentialProject" value="<?php echo $grant['potentialProject']; ?>"></p>
         <p>Possible Award: <input type="number" name="possibleAward" value="<?php echo $grant['possibleAward']; ?>"></p>
         <p>Total Awards Given: <input type="number" name="numberAwardsGiven" value="<?php echo $grant['numberAwardsGiven']; ?>"></p>
@@ -256,6 +271,13 @@ include('header.php');
             <option value="Other" <?php if ($grant['grantType'] == 'Other') echo 'selected'; ?>>Other</option>
           </select></p>
         <p>Due Date: <input type="date" name="dueDate" value="<?php echo $grant['dueDate'];?>"></p>
+        <p>Pathways</p>
+        <ul>
+          <?php foreach ($pathways as $pathway) { ?>
+            <li><?php echo $pathway['pathwayName']; ?></li>
+          <?php } ?>
+        </ul>
+        <input type="submit" target="_self" value="Update Pathways" form="pathway">
         <p>Potential Project: <input type="text" name="potentialProject" value="<?php echo $grant['potentialProject']; ?>"></p>
         <p>Possible Award: <input type="number" name="possibleAward" value="<?php echo $grant['possibleAward']; ?>"></p>
         <p>Total Awards Given: <input type="number" name="numberAwardsGiven" value="<?php echo $grant['numberAwardsGiven']; ?>"></p>
@@ -303,6 +325,13 @@ include('header.php');
         <p>Funder: <input type="text" name="funder" value="<?php echo  $grant['funder']; ?>"></p>
         <p>Website: <input type="text" name="website" value="<?php echo $grant['website'];?>"></p>
         <p>Description: <input type="text" name="description" value="<?php echo $grant['description'];?>"></p>
+        <p>Pathways</p>
+        <ul>
+          <?php foreach ($pathways as $pathway) { ?>
+            <li><?php echo $pathway['pathwayName']; ?></li>
+          <?php } ?>
+        </ul>
+        <input type="submit" target="_self" value="Update Pathways" form="pathway">
         <p>Grant Type: 
           <select name="grantType">
             <option value="Federal" <?php if ($grant['grantType'] == 'Federal') echo 'selected'; ?>>Federal</option>
