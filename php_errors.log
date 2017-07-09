@@ -67,3 +67,8 @@ Stack trace:
 [08-Jul-2017 20:40:03 UTC] PHP Stack trace:
 [08-Jul-2017 20:40:03 UTC] PHP   1. {main}() /home/ubuntu/workspace/scripts/addFile.php:0
 [08-Jul-2017 20:40:03 UTC] PHP   2. move_uploaded_file() /home/ubuntu/workspace/scripts/addFile.php:8
+[09-Jul-2017 19:59:57 UTC] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[42S22]: Column not found: 1054 Unknown column 'PluginsandCredentials.txt' in 'field list'' in /home/ubuntu/workspace/scripts/addFile.php:22
+Stack trace:
+#0 /home/ubuntu/workspace/scripts/addFile.php(22): PDO->exec('?INSERT INTO Fi...')
+#1 {main}
+  thrown in /home/ubuntu/workspace/scripts/addFile.php on line 22

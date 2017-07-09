@@ -16,7 +16,7 @@ $SQL = "
 INSERT INTO Files
 (grantID, role, fileName)
 VALUES
-('$grantID', '$role', $fileName);
+('$grantID', '$role', '$fileName');
 ";
 
 $success = $db->exec($SQL);
