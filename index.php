@@ -7,6 +7,8 @@ if (!$_SESSION['userid']) header('Location: Login.php');
 $SQL = "SELECT * FROM allGrant;";
 $grants = $db->query($SQL);
 
+
+
 echo '<h4>You are logged in as '. $_SESSION["userid"] .'</h4>';
 ?>
 
@@ -23,6 +25,7 @@ echo '<h4>You are logged in as '. $_SESSION["userid"] .'</h4>';
           <th>Due Date</th>
           <th>Award</th>
           <th>Status</th>
+          <th>Files</th>
         </tr>
         <?php foreach ($grants as $grant) { 
           echo '<tr>';
@@ -32,6 +35,21 @@ echo '<h4>You are logged in as '. $_SESSION["userid"] .'</h4>';
           echo '<td>' . $grant['dueDate'] . '</td>';
           echo '<td>' . $grant['possibleAward'] . '</td>';
           echo '<td>' . $grant['status'] . '</td>';
+          echo '<td><ol>'; 
+          
+          $SQL2 = "SELECT * FROM Files;";
+          $files = $db->query($SQL2);
+          
+          foreach ($files as $file) { ?>
+          
+              <?php if ($file['grantID'] == $grant['grantID']) { ?>
+              
+                    <li><?php echo $file['role'] . ' ' . $file['fileName'] . ' '; ?><a href="files/<?php echo $file['fileName']; ?>" download>Download</a></li>
+                    
+              <?php } 
+                
+          } 
+          echo '</ol></td>';
           echo '</tr>';
         } ?>
       </table>

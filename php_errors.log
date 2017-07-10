@@ -72,3 +72,8 @@ Stack trace:
 #0 /home/ubuntu/workspace/scripts/addFile.php(22): PDO->exec('?INSERT INTO Fi...')
 #1 {main}
   thrown in /home/ubuntu/workspace/scripts/addFile.php on line 22
+[10-Jul-2017 17:39:34 UTC] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[42S22]: Column not found: 1054 Unknown column 'fileIDID' in 'where clause'' in /home/ubuntu/workspace/scripts/addFile.php:40
+Stack trace:
+#0 /home/ubuntu/workspace/scripts/addFile.php(40): PDO->exec('?        DELETE...')
+#1 {main}
+  thrown in /home/ubuntu/workspace/scripts/addFile.php on line 40
