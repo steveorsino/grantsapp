@@ -1,3 +1,5 @@
+
+/* CREATE GRANT BUTTONS */
 .prospect, .pending, .development {
     height: 100px;
 }
@@ -43,9 +45,16 @@
 .development:hover {
     background-color: hotpink;
 }
+
+/* MESSAGE COLORING */
 .success {
     color: green;
 }
 .danger {
     color: red;
+}
+
+/* GRANT SEARCH */
+.grant-search {
+    margin: 10px 0px 40px 0px;
 }

@@ -3,9 +3,26 @@ $title = 'Update a Grant';
 include('header.php');
 ?>
 <div class="container">
+  
     <div class="page-header">
       <h1>Update an existing grant</h1>
     </div>
+    
+    <div class="row grant-search">
+      <div class="col-sm-6">
+        <form action="UpdateGrant.php" method="get" target="_self">
+          <div class="input-group">
+            <input type="number" class="form-control" id="grantID" name="grantID" placeholder="Enter Grant ID">
+            <div class="input-group-btn">
+              <button class="btn btn-primary" type="submit"><i class="glyphicon glyphicon-search"></i></button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+    
+    
+    
     
   <?php if ($_SERVER['REQUEST_METHOD'] == 'GET') { 
     $grantID = filter_input(INPUT_GET, 'grantID');
@@ -84,59 +101,155 @@ include('header.php');
       <?php } else if ($grant['status'] == 'Development') { 
         $roles = array('RFP', 'Other');
       ?>
-        <p>Associated Files:</p>
-        <?php if ($files->num_rows == 0) {
-          echo '<h4 class="warning">There are no files associated to this grant.</h4>' ;
-        } ?>
-        <ul>
-          <?php foreach ($files as $file) { ?>
-            <li><?php echo $file['role'] . ' | ' . $file['fileName']; ?></li>
-          <?php  } ?>
-        </ul><br>
-        <input type="submit" target="_self" value="Update Files" form="file"><br>
-        <form action="scripts/updateGrant.php" method="post"target="_self">
-        <p>Funder: <input type="text" name="funder" value="<?php echo  $grant['funder']; ?>"></p>
-        <p>Website: <input type="text" name="website" value="<?php echo $grant['website'];?>"></p>
-        <p>Description: <input type="text" name="description" value="<?php echo $grant['description'];?>"></p>
-        <p>Grant Type: 
-          <select name="grantType">
-            <option value="Federal" <?php if ($grant['grantType'] == 'Federal') echo 'selected'; ?>>Federal</option>
-            <option value="State" <?php if ($grant['grantType'] == 'State') echo 'selected'; ?>>State</option>
-            <option value="Foundation" <?php if ($grant['grantType'] == 'Foundation') echo 'selected'; ?>>Foundation</option>
-            <option value="Other" <?php if ($grant['grantType'] == 'Other') echo 'selected'; ?>>Other</option>
-          </select></p>
-        <p>Due Date: <input type="date" name="dueDate" value="<?php echo $grant['dueDate'];?>"></p>
-        <p>Pathways</p>
-        <ul>
-          <?php foreach ($pathways as $pathway) { ?>
-            <li><?php echo $pathway['pathwayName']; ?></li>
-          <?php } ?>
-        </ul>
-        <input type="submit" target="_self" value="Update Pathways" form="pathway"><br>
-        <p>Potential Project: <input type="text" name="potentialProject" value="<?php echo $grant['potentialProject']; ?>"></p>
-        <p>Possible Award: <input type="number" name="possibleAward" value="<?php echo $grant['possibleAward']; ?>"></p>
-        <p>Total Awards Given: <input type="number" name="numberAwardsGiven" value="<?php echo $grant['numberAwardsGiven']; ?>"></p>
-        <p>Grant status
-          <select name="status">
-            <option value="Prospect" <?php if ($grant['status'] == 'Prospect') echo 'selected'; ?>>Prospect</option>
-            <option value="Development" <?php if ($grant['status'] == 'Development') echo 'selected'; ?>>Development</option>
-            <option value="Pending" <?php if ($grant['status'] == 'Pending') echo 'selected'; ?>>Pending</option>
-            <option value="Post Award" <?php if ($grant['status'] == 'Post Award') echo 'selected'; ?>>Post Award</option>
-            <option value="Denied" <?php if ($grant['status'] == 'Denied') echo 'selected'; ?>>Denied</option>
-            <option value="Closed" <?php if ($grant['status'] == 'Closed') echo 'selected'; ?>>Closed</option>
-          </select>
-        </p>
-        <p>PI or PD Information: <input type="text" name="piorpd" value="<?php echo $grant['piorpd']; ?>"></p>
-        <p>Project Officer: <input type="text" name="projectOfficer" value="<?php echo $grant['projectOfficer']; ?>"></p>
-        <p>Grant Writer: <input type="text" name="grantWriter" value="<?php echo $grant['grantWriter']; ?>"></p>
-        <p>Indirect Percentage: <input type="number" name="indirectPercentage" value="<?php echo $grant['indirectPercentage']; ?>"></p>
-        <p>Match Requirement: <input type="number" name="matchRequirement" value="<?php echo $grant['matchRequirement']; ?>"></p>
-        <p>Associated Department: <input type="text" name="associatedDepartment" value="<?php echo $grant['associatedDepartment']; ?>"></p>
-        <p>Attached Files</p>
         
-        <input type="hidden" name="grantID" value="<?php echo $grant['grantID'];?>">
-        <input type="submit" value="Update">
-        </form>
+        <div class="row">
+          <form class="form-horizontal col-sm-8 col-sm-12" action="scripts/updateGrant.php" method="post"target="_self">
+            <div class="form-group">
+              <label class="col-sm-2 control-label">Funder:</label>
+              <div class="col-sm-6">
+                <input class="form-control"type="text" name="funder" value="<?php echo  $grant['funder']; ?>">
+              </div>
+            </div>
+            
+            <div class="form-group">
+              <label class="col-sm-2 control-label">Website:</label>
+              <div class="col-sm-6">
+                <input class="form-control" type="text" name="website" value="<?php echo $grant['website'];?>">
+              </div>
+            </div>
+            
+            <div class="form-group">
+              <label class="col-sm-2 control-label">Description:</label>
+              <div class="col-sm-6">
+                <input class="form-control" type="text" name="description" value="<?php echo $grant['description'];?>">
+              </div>
+            </div>
+            
+            <div class="form-group">
+              <label class="col-sm-2 control-label">Grant Type:</label>
+              <div class="col-sm-6">
+                <select class="form-control" name="grantType">
+                  <option value="Federal" <?php if ($grant['grantType'] == 'Federal') echo 'selected'; ?>>Federal</option>
+                  <option value="State" <?php if ($grant['grantType'] == 'State') echo 'selected'; ?>>State</option>
+                  <option value="Foundation" <?php if ($grant['grantType'] == 'Foundation') echo 'selected'; ?>>Foundation</option>
+                  <option value="Other" <?php if ($grant['grantType'] == 'Other') echo 'selected'; ?>>Other</option>
+                </select>
+              </div>
+            </div>
+            
+            <div class="form-group">
+              <label class="col-sm-2 control-label">Due Date:</label>
+              <div class="col-sm-6">
+                <input class="form-control" type="date" name="dueDate" value="<?php echo $grant['dueDate'];?>">
+              </div>
+            </div>
+            
+            <div class="form-group">
+              <label class="col-sm-2 control-label">Potential Project:</label>
+              <div class="col-sm-6">
+                <input class="form-control" type="text" name="potentialProject" value="<?php echo $grant['potentialProject']; ?>">
+              </div>
+            </div>
+            
+            <div class="form-group">
+              <label class="col-sm-2 control-label">Possible Award:</label>
+              <div class="col-sm-6">
+                <input class="form-control" type="number" name="possibleAward" value="<?php echo $grant['possibleAward']; ?>">
+              </div>
+            </div>
+            
+            <div class="form-group">
+              <label class="col-sm-2 control-label">Total Awards Given:</label>
+              <div class="col-sm-6">
+                <input class="form-control" type="number" name="numberAwardsGiven" value="<?php echo $grant['numberAwardsGiven']; ?>">
+              </div>
+            </div>
+            
+            <div class="form-group">
+              <label class="col-sm-2 control-label">Grant status:</label>
+              <div class="col-sm-6">
+                <select class="form-control" name="status">
+                  <option value="Prospect" <?php if ($grant['status'] == 'Prospect') echo 'selected'; ?>>Prospect</option>
+                  <option value="Development" <?php if ($grant['status'] == 'Development') echo 'selected'; ?>>Development</option>
+                  <option value="Pending" <?php if ($grant['status'] == 'Pending') echo 'selected'; ?>>Pending</option>
+                  <option value="Post Award" <?php if ($grant['status'] == 'Post Award') echo 'selected'; ?>>Post Award</option>
+                  <option value="Denied" <?php if ($grant['status'] == 'Denied') echo 'selected'; ?>>Denied</option>
+                  <option value="Closed" <?php if ($grant['status'] == 'Closed') echo 'selected'; ?>>Closed</option>
+                </select>
+              </div>
+            </div>
+          
+            <div class="form-group">
+              <label class="col-sm-2 control-label">PI or PD Information:</label>
+              <div class="col-sm-6">
+                <input class="form-control" type="text" name="piorpd" value="<?php echo $grant['piorpd']; ?>">
+              </div>
+            </div>
+            
+            <div class="form-group">
+              <label class="col-sm-2 control-label">Project Officer:</label>
+              <div class="col-sm-6">
+                <input class="form-control" type="text" name="projectOfficer" value="<?php echo $grant['projectOfficer']; ?>">
+              </div>
+            </div>
+          
+            <div class="form-group">
+              <label class="col-sm-2 control-label">Grant Writer:</label>
+              <div class="col-sm-6">
+                <input class="form-control" type="text" name="grantWriter" value="<?php echo $grant['grantWriter']; ?>">
+              </div>
+            </div>
+          
+            <div class="form-group">
+              <label class="col-sm-2 control-label">Indirect Percentage:</label>
+              <div class="col-sm-6">
+                <input class="form-control" type="number" name="indirectPercentage" value="<?php echo $grant['indirectPercentage']; ?>">
+              </div>
+            </div>
+            
+            <div class="form-group">
+              <label class="col-sm-2 control-label">Match Requirement:</label>
+              <div class="col-sm-6">
+                <input class="form-control" type="number" name="matchRequirement" value="<?php echo $grant['matchRequirement']; ?>">
+              </div>
+            </div>
+            
+            <div class="form-group">
+              <label class="col-sm-2 control-label">Associated Department:</label>
+              <div class="col-sm-6">
+                <input class="form-control" type="text" name="associatedDepartment" value="<?php echo $grant['associatedDepartment']; ?>">
+              </div>
+            </div>
+            
+            <input type="hidden" name="grantID" value="<?php echo $grant['grantID'];?>">
+            <input class="col-sm-8 btn btn-primary" type="submit" value="Update">
+            
+          </form>
+          
+          <div class="col-sm-4 col-sm-12 list-group">
+            <h4 class="list-group-item-heading list-group-item active">Associated Files:</h4>
+            <?php if ($files->rowCount() == 0) {
+              echo '<h4 class="danger">There are no files associated to this grant.</h4>' ;
+            } ?>
+            <ul>
+              <?php foreach ($files as $file) { ?>
+                <li class="list-group-item-text"><?php echo $file['role'] . ' | ' . $file['fileName']; ?></li>
+              <?php  } ?>
+            </ul><br>
+            <input class="form-control btn btn-primary" type="submit" target="_self" value="Update Files" form="file"><br>
+          </div>
+          
+          <div class="col-sm-4 col-sm-12">
+            <p>Pathways</p>
+            <ul>
+              <?php foreach ($pathways as $pathway) { ?>
+                <li><?php echo $pathway['pathwayName']; ?></li>
+              <?php } ?>
+            </ul>
+            <input type="submit" target="_self" value="Update Pathways" form="pathway">
+          </div>
+          
+        </div>
         
       <?php if ($_COOKIE['message'] != null) {
         $message = $_COOKIE['message']; ?>
@@ -154,15 +267,18 @@ include('header.php');
       <?php } else if ($grant['status'] == 'Pending') { 
         $roles = array('RFP', 'Final Proposal','Other');
       ?>
-      
+      <p>Associated Files:</p>
+        <?php if ($files->rowCount() == 0) {
+          echo '<h4 class="warning">There are no files associated to this grant.</h4>' ;
+        } ?>
         <ul>
           <?php foreach ($files as $file) { ?>
             <li><?php echo $file['role'] . ' | ' . $file['fileName']; ?></li>
           <?php  } ?>
-        </ul>
+        </ul><br>
         <input type="submit" target="_self" value="Update Files" form="file"><br>
       
-      <h4>Grant number: <?php echo $grant['grantID'];?> </h4>
+      
         <form action="scripts/updateGrant.php" method="post"target="_self">
         <p>Funder: <input type="text" name="funder" value="<?php echo  $grant['funder']; ?>"></p>
         <p>Website: <input type="text" name="website" value="<?php echo $grant['website'];?>"></p>
@@ -230,15 +346,17 @@ include('header.php');
         
           $roles = array('RFP', 'Final Proposal', 'Funder Feedback', 'Contract and Amendments', 'Budget', 'Budget Amendments', 'Reports', 'Financials', 'Timeline', 'Other');
       ?>
-      
+      <p>Associated Files:</p>
+        <?php if ($files->rowCount() == 0) {
+          echo '<h4 class="warning">There are no files associated to this grant.</h4>' ;
+        } ?>
         <ul>
           <?php foreach ($files as $file) { ?>
             <li><?php echo $file['role'] . ' | ' . $file['fileName']; ?></li>
           <?php  } ?>
-        </ul>
+        </ul><br>
         <input type="submit" target="_self" value="Update Files" form="file"><br>
       
-      <h4>Grant number: <?php echo $grant['grantID'];?> </h4>
         <form action="scripts/updateGrant.php" method="post"target="_self">
         <p>Funder: <input type="text" name="funder" value="<?php echo  $grant['funder']; ?>"></p>
         <p>Website: <input type="text" name="website" value="<?php echo $grant['website'];?>"></p>
@@ -319,15 +437,17 @@ include('header.php');
       <?php } else if ($grant['status'] == 'Denied') { 
             $roles = array('RFP', 'Final Proposal', 'Funder Feedback', 'Other');
       ?>
-      
+      <p>Associated Files:</p>
+        <?php if ($files->rowCount() == 0) {
+          echo '<h4 class="warning">There are no files associated to this grant.</h4>' ;
+        } ?>
         <ul>
           <?php foreach ($files as $file) { ?>
             <li><?php echo $file['role'] . ' | ' . $file['fileName']; ?></li>
           <?php  } ?>
-        </ul>
+        </ul><br>
         <input type="submit" target="_self" value="Update Files" form="file"><br>
       
-       <h4>Grant number: <?php echo $grant['grantID'];?> </h4>
         <form action="scripts/updateGrant.php" method="post"target="_self">
         <p>Funder: <input type="text" name="funder" value="<?php echo  $grant['funder']; ?>"></p>
         <p>Website: <input type="text" name="website" value="<?php echo $grant['website'];?>"></p>
@@ -395,16 +515,18 @@ include('header.php');
       
           $roles = array('RFP', 'Final Proposal', 'Funder Feedback', 'Contract and Amendments', 'Budget', 'Budget Amendments', 'Reports', 'Financials', 'Timeline', 'Other');
       ?>
-      
-
+      <p>Associated Files:</p>
+        <?php if ($files->rowCount() == 0) {
+          echo '<h4 class="warning">There are no files associated to this grant.</h4>' ;
+        } ?>
         <ul>
           <?php foreach ($files as $file) { ?>
             <li><?php echo $file['role'] . ' | ' . $file['fileName']; ?></li>
           <?php  } ?>
-        </ul>
+        </ul><br>
         <input type="submit" target="_self" value="Update Files" form="file"><br>
       
-        <h4>Grant number: <?php echo $grant['grantID'];?> </h4>
+       
         <form action="scripts/updateGrant.php" method="post"target="_self">
         <p>Funder: <input type="text" name="funder" value="<?php echo  $grant['funder']; ?>"></p>
         <p>Website: <input type="text" name="website" value="<?php echo $grant['website'];?>"></p>
@@ -457,13 +579,11 @@ include('header.php');
   
   <?php } ?>
     
-    <div class="row">
-      <form action="UpdateGrant.php" method="get" target="_self">
-        <label for="grantID">Grant ID:</label>
-        <input type="number" class="form-control" id="grantID" name="grantID">
-        <input type="submit">
-      </form>
-    </div>
+    
+    
+   
+    
+    
     <form action="AddPathway.php" id="pathway" method="post">
       <input type="hidden" name="grantID" value="<?php echo $grantID; ?>">
     </form>
